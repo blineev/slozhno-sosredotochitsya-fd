@@ -2,4 +2,23 @@
 
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  background-image: var(--bg-image, url(../images/cover-image-dark.png));
+  background-position: center;
+  background-attachment: fixed;
+  width: 375px;
+  font-family: var(--main-font, sans-serif);
+}
+
+.header {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  height: 100vh;
+  min-height: 668px;
+}
+
+.header_title {
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 116px;
+  line-height: 0.83;
 }
