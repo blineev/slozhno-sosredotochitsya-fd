@@ -3,10 +3,5 @@
   и их переопределение под различные устройства
 */
 :root {
-  --bg-image: url(../images/cover-image-dark.png);
-  --bg-color: #000028;
-  --main-font: "IBM Plex Mono";
-  --header_title_color: #DB00FF;
-  --text_bg-color: #FF0070;
-  --accent_text_color: #000028;
+  --main-font: "IBM Plex Mono", monospace;
 }

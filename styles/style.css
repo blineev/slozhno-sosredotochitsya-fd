@@ -2,10 +2,12 @@
 
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  position: relative;
   background-image: var(--bg-image, url(../images/cover-image-dark.png));
   background-position: center;
   background-attachment: fixed;
-  width: 375px;
+  min-width: 375px;
+  max-width: 1024px;
   font-family: var(--main-font, sans-serif);
 }
 
@@ -21,7 +23,7 @@
   position: absolute;
   top: 10px;
   right: 19px;
-  color: var(--text_bg-color, #FF0070);
+  color: var(--accent-color, #FF0070);
   font-weight: 400;
   font-size: 18px;
   line-height: 25px;
@@ -37,8 +39,8 @@
   margin-left: 10px;
   margin-bottom: 2px;
   border-radius: 50%;
-  background-color: var(--text_bg-color, #FF0070);
-  box-shadow: 0 0 4px 2px var(--text_bg-color, #FF0070);
+  background-color: var(--accent-bg, #FF0070);
+  box-shadow: 0 0 4px 2px var(--accent-color, #FF0070);
 }
 
 .decorated-zone {
@@ -52,8 +54,8 @@
   right: 10px;
   width: 25px;
   height: 25px;
-  border-top: 1px solid var(--text_bg-color, #FF0070);
-  border-right: 1px solid var(--text_bg-color, #FF0070);
+  border-top: 1px solid var(--accent-color, #FF0070);
+  border-right: 1px solid var(--accent-color, #FF0070);
 }
 
 .decorated-zone::after {
@@ -63,8 +65,8 @@
   left: 10px;
   width: 25px;
   height: 25px;
-  border-bottom: 1px solid var(--text_bg-color, #FF0070);
-  border-left: 1px solid var(--text_bg-color, #FF0070);
+  border-bottom: 1px solid var(--accent-color, #FF0070);
+  border-left: 1px solid var(--accent-color, #FF0070);
 }
 
 .header__theme-menu {
@@ -94,11 +96,11 @@
   text-transform: lowercase;
   font-weight: 400;
   font-size: 18px;
-  color: var(--text_bg-color, #FF0070);
+  color: var(--accent-color, #FF0070);
 }
 
 .header__theme-menu-button_active {
-  border: 1px solid var(--text_bg-color, #FF0070);
+  border: 1px solid var(--accent-color, #FF0070);
 }
 
 .header_title {
@@ -107,31 +109,135 @@
   font-weight: 700;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 0.83;
-  color: var(--header_title_color, #DB00FF);
-  text-shadow: 4px 4px 0px var(--text_bg-color, #FF0070);
+  color: var(--title-color, #DB00FF);
+  text-shadow: 4px 4px 0px var(--accent-color, #FF0070);
 }
 
 .header_text {
   margin: -9px 10px 0;
   align-self: center;
-  background-color: var(--text_bg-color, #FF0070);
+  background-color: var(--accent-bg, #FF0070);
 }
 
 .header_paragraph {
-  color: var(--accent_text_color, #000028);
+  color: var(--accent-text-color, #000028);
   font-weight: 700;
   font-size: 18px;
   line-height: 23.4px;
 }
 
 .main {
-  background-color: var(--bg_color, #000028);
-  padding-top: 40px;
+  background-color: var(--bg-color, #000028);
+  padding: 40px 10px 0;
 }
 
-.main_subtitle {
+.section {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  margin-bottom: 50px;
+}
+
+.section_title {
   font-weight: 700;
   font-size: 18px;
   line-height: 23.4px;
-  color: var(--accent_text_color, #000028);
+  color: var(--accent-color, #FF0070);
+}
+
+.card_title {
+  margin-bottom: 10px;
+  background-color: var(--accent-bg, #FF0070);
+  color: var(--accent-text-color, #000028);
+}
+
+.tip-title {
+  margin: 20px 0 10px;
+  background-color: var(--accent-bg, #FF0070);
+  color: var(--accent-text-color, #000028);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23.4px;
+}
+
+.card_text {
+  color: var(--text-color, #F1B2CE);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23.4px;
+}
+
+.card_text a {
+  text-shadow: 2px 2px 0px var(--accent-color, #FF0070);
+  text-decoration: none;
+}
+
+.gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  min-height: 668px;
+}
+
+.footer_title {
+  display: inline-block;
+  margin: 0 10px;
+  font-weight: 700;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 0.83;
+  color: var(--title-color, #DB00FF);
+  text-shadow: 4px 4px 0px var(--accent-color, #FF0070);
+  text-align: center;
+}
+
+@media (width >= 768px) {
+  .header__rec {
+    right: 29px;
+  }
+  .header {
+    margin: 0 10px;
+  }
+  .header_title {
+    margin-left: -10px;
+    justify-self: start;
+  }
+
+  .header_text {
+    justify-self: end;
+    inline-size: 364px;
+  }
+
+  .main {
+    padding: 40px 20px 0;
+  }
+
+  .section {
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 80px;
+  }
+
+  .section_vertical .section_title {
+    grid-column: 1;
+    grid-row: 1 / -1;
+  }
+
+  .section_vertical .card {
+    grid-column: 1 / -1;
+  }
+
+  .section_title {
+    grid-row: span 3;
+  }
+}
+
+@media (width >= 1024px) {
 }
