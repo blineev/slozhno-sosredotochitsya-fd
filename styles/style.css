@@ -3,12 +3,21 @@
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
   position: relative;
-  background-image: var(--bg-image, url(../images/cover-image-dark.png));
-  background-position: center;
-  background-attachment: fixed;
   min-width: 375px;
   max-width: 1024px;
   font-family: var(--main-font, sans-serif);
+}
+
+.page::before {
+  content: "";
+  inset: 0;
+  margin: 0 auto;
+  position: fixed;
+  max-width: 1024px;
+  background-image: var(--bg-image, url(../images/cover-image-dark.png));
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -1;
 }
 
 .header {
@@ -23,7 +32,7 @@
   position: absolute;
   top: 10px;
   right: 19px;
-  color: var(--accent-color, #FF0070);
+  color: var(--accent-color, #ff0070);
   font-weight: 400;
   font-size: 18px;
   line-height: 25px;
@@ -32,15 +41,15 @@
 }
 
 .header__rec::after {
-  content: '';
+  content: "";
   display: inline-block;
   width: 9px;
   height: 9px;
   margin-left: 10px;
   margin-bottom: 2px;
   border-radius: 50%;
-  background-color: var(--accent-bg, #FF0070);
-  box-shadow: 0 0 4px 2px var(--accent-color, #FF0070);
+  background-color: var(--accent-bg, #ff0070);
+  box-shadow: 0 0 4px 2px var(--accent-color, #ff0070);
 }
 
 .decorated-zone {
@@ -48,25 +57,25 @@
 }
 
 .decorated-zone::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 10px;
   right: 10px;
   width: 25px;
   height: 25px;
-  border-top: 1px solid var(--accent-color, #FF0070);
-  border-right: 1px solid var(--accent-color, #FF0070);
+  border-top: 1px solid var(--accent-color, #ff0070);
+  border-right: 1px solid var(--accent-color, #ff0070);
 }
 
 .decorated-zone::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 10px;
   left: 10px;
   width: 25px;
   height: 25px;
-  border-bottom: 1px solid var(--accent-color, #FF0070);
-  border-left: 1px solid var(--accent-color, #FF0070);
+  border-bottom: 1px solid var(--accent-color, #ff0070);
+  border-left: 1px solid var(--accent-color, #ff0070);
 }
 
 .header__theme-menu {
@@ -96,11 +105,21 @@
   text-transform: lowercase;
   font-weight: 400;
   font-size: 18px;
-  color: var(--accent-color, #FF0070);
+  color: var(--accent-color, #ff0070);
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid #ff007066;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--accent-color, #ff0070);
+  outline: none;
 }
 
 .header__theme-menu-button_active {
-  border: 1px solid var(--accent-color, #FF0070);
+  border: 1px solid var(--accent-color, #ff0070);
+  pointer-events: none;
 }
 
 .header_title {
@@ -109,14 +128,14 @@
   font-weight: 700;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 0.83;
-  color: var(--title-color, #DB00FF);
-  text-shadow: 4px 4px 0px var(--accent-color, #FF0070);
+  color: var(--title-color, #db00ff);
+  text-shadow: 4px 4px 0px var(--accent-color, #ff0070);
 }
 
 .header_text {
   margin: -9px 10px 0;
   align-self: center;
-  background-color: var(--accent-bg, #FF0070);
+  background-color: var(--accent-bg, #ff0070);
 }
 
 .header_paragraph {
@@ -142,7 +161,7 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 23.4px;
-  color: var(--accent-color, #FF0070);
+  color: var(--accent-color, #ff0070);
 }
 
 .card:not(:last-child) {
@@ -151,13 +170,13 @@
 
 .card_title {
   margin-bottom: 10px;
-  background-color: var(--accent-bg, #FF0070);
+  background-color: var(--accent-bg, #ff0070);
   color: var(--accent-text-color, #000028);
 }
 
 .tip-title {
   margin: 20px 0 10px;
-  background-color: var(--accent-bg, #FF0070);
+  background-color: var(--accent-bg, #ff0070);
   color: var(--accent-text-color, #000028);
   font-weight: 400;
   font-size: 18px;
@@ -165,15 +184,24 @@
 }
 
 .card_text {
-  color: var(--text-color, #F1B2CE);
+  color: var(--text-color, #f1b2ce);
   font-weight: 400;
   font-size: 18px;
   line-height: 23.4px;
 }
 
 .card_text a {
-  text-shadow: 2px 2px 0px var(--accent-color, #FF0070);
+  text-shadow: 2px 2px 0px var(--accent-color, #ff0070);
   text-decoration: none;
+  box-shadow: inset 0 -1px 0 0 transparent;
+}
+
+.card_text a:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+.card_text a:hover {
+  box-shadow: inset 0 -1px 0 0 currentColor;
 }
 
 .gallery {
@@ -202,8 +230,8 @@
   font-weight: 700;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 0.83;
-  color: var(--title-color, #DB00FF);
-  text-shadow: 4px 4px 0px var(--accent-color, #FF0070);
+  color: var(--title-color, #db00ff);
+  text-shadow: 4px 4px 0px var(--accent-color, #ff0070);
   text-align: center;
 }
 
@@ -211,11 +239,11 @@
   .header__rec {
     right: 29px;
   }
-  
+
   .header {
     margin: 0 10px;
   }
-  
+
   .header_title {
     margin-left: -10px;
     justify-self: start;
@@ -235,20 +263,18 @@
     margin-bottom: 80px;
   }
 
-  /* Обычные секции: заголовок растянуть на все строки */
   .section:not(.section_vertical) .section_title {
     grid-row: 1;
     align-self: start;
   }
 
-  /* Секция в столбик: всё в одной колонке */
   .section_vertical {
     grid-template-columns: 1fr 2fr;
   }
 
   .section_vertical .section_title {
-  grid-column: 1;
-  grid-row: 1;
+    grid-column: 1;
+    grid-row: 1;
   }
 
   .section_vertical .card,
