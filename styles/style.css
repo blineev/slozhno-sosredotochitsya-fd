@@ -6,18 +6,9 @@
   min-width: 375px;
   max-width: 1024px;
   font-family: var(--main-font, sans-serif);
-}
-
-.page::before {
-  content: "";
-  inset: 0;
-  margin: 0 auto;
-  position: fixed;
-  max-width: 1024px;
   background-image: var(--bg-image, url(../images/cover-image-dark.png));
   background-position: center;
   background-attachment: fixed;
-  z-index: -1;
 }
 
 .header {
@@ -164,10 +155,6 @@
   color: var(--h2_title_color, #ff0070);
 }
 
-.card:not(:last-child) {
-  margin-bottom: 20px;
-}
-
 .card_title {
   margin-bottom: 10px;
   background-color: var(--accent-bg, #ff0070);
@@ -247,6 +234,7 @@
   .header_title {
     margin-left: -10px;
     justify-self: start;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .header_text {
@@ -315,6 +303,10 @@
 }
 
 @media (width >= 1024px) {
+  .header_title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
   .header_text {
     justify-self: end;
     inline-size: 491px;
