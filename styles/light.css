@@ -6,22 +6,36 @@
 
 :root.theme-light {
   --bg-image: url(../images/cover-image-light.png);
-  --bg-color: #fff1f7;
-  --title-color: #FFC2E6;
-  --accent-color: #FF8DCB;
-  --accent-bg: #FF8DCB;
-  --accent-text-color: #353430;
-  --text-color: #353430;
+  --bg-color: rgba(255, 241, 247, 1);;
+  --title-color: rgba(255, 194, 230, 1);;
+  --h2_title_color: rgba(53, 52, 48, 1);;
+  --accent-color: rgba(255, 141, 203, 1);;
+  --accent-bg: rgba(255, 141, 203, 1);;
+  --accent-text-color: rgba(53, 52, 48, 1);;
+  --text-color: rgba(53, 52, 48, 1);;
+  --buttons_color: rgba(53, 52, 48, 1);;
+  --buttons_hover-color: rgba(50, 49, 45, 0.4);
+}
+
+:root.theme-light .header__rec {
+  display: none;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     --bg-image: url(../images/cover-image-light.png);
-    --bg-color: #fff1f7;
-    --title-color: #FFC2E6;
-    --accent-color: #FF8DCB;
-    --accent-bg: #FF8DCB;
-    --accent-text-color: #353430;
-    --text-color: #353430;
+    --bg-color: rgba(255, 241, 247, 1);;
+    --title-color: rgba(255, 194, 230, 1);;
+    --h2_title_color: rgba(53, 52, 48, 1);;
+    --accent-color: rgba(255, 141, 203, 1);;
+    --accent-bg: rgba(255, 141, 203, 1);;
+    --accent-text-color: rgba(53, 52, 48, 1);;
+    --text-color: rgba(53, 52, 48, 1);;
+    --buttons_color: rgba(53, 52, 48, 1);;
+    --buttons_hover-color: rgba(50, 49, 45, 0.4);
+  }
+
+  :root .header__rec {
+    display: none;
   }
 } 

@@ -105,20 +105,20 @@
   text-transform: lowercase;
   font-weight: 400;
   font-size: 18px;
-  color: var(--accent-color, #ff0070);
+  color: var(--buttons_color, #ff0070);
 }
 
 .header__theme-menu-button:hover {
-  border: 1px solid #ff007066;
+  border: 1px solid var(--buttons_hover-color);
 }
 
 .header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid var(--accent-color, #ff0070);
+  border-bottom: 1px solid var(--buttons_color, #ff0070);
   outline: none;
 }
 
 .header__theme-menu-button_active {
-  border: 1px solid var(--accent-color, #ff0070);
+  border: 1px solid var(--buttons_color, #ff0070);
   pointer-events: none;
 }
 
@@ -161,7 +161,7 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 23.4px;
-  color: var(--accent-color, #ff0070);
+  color: var(--h2_title_color, #ff0070);
 }
 
 .card:not(:last-child) {
