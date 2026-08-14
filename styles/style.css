@@ -283,7 +283,7 @@
     grid-row: 1;
   }
 
-  .section_vertical .card,
+  .section_vertical .section_cards,
   .section_vertical .card_title,
   .section_vertical .gallery {
     grid-column: 1 / -1;
@@ -370,6 +370,10 @@
   .section_gallery .gallery,
   .section_vertical .section_cards {
     grid-column: 1 / -1;
+  }
+
+  .section_vertical:not(.section_gallery) .section_cards .card {
+    grid-column: auto;
   }
 
   .section_vertical:not(.section_gallery) .section_title {
