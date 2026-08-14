@@ -358,10 +358,6 @@
     gap: 20px;
   }
 
-  .section_vertical:not(.section_gallery) .section_cards .card {
-    grid-column: auto;
-  }
-
   .section_gallery {
     grid-template-columns: 1fr;
     gap: 20px;
