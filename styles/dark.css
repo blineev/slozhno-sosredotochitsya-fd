@@ -17,3 +17,7 @@
   --buttons_hover-color: rgba(255, 0, 112, 0.4);
   --decoration_color: rgba(255, 0, 112, 1);
 }
+
+:root.theme-dark .header__rec {
+  display: inline-block;
+}

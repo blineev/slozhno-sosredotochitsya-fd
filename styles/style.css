@@ -7,8 +7,11 @@
   max-width: 1024px;
   font-family: var(--main-font, sans-serif);
   background-image: var(--bg-image, url(../images/cover-image-dark.png));
+  background-color: var(--bg-color);
   background-position: center;
   background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .header {
@@ -85,10 +88,10 @@
 
 .header__theme-menu-item {
   inline-size: 70px;
-  block-size: 26px;
 }
 
 .header__theme-menu-button {
+  cursor: pointer;
   background-color: transparent;
   inline-size: 100%;
   block-size: 100%;
@@ -115,7 +118,7 @@
 
 .header_title {
   display: inline-block;
-  margin: 0 10px;
+  margin: 0 10px 9px;
   font-weight: 700;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 0.83;
@@ -137,7 +140,6 @@
 }
 
 .main {
-  background-color: var(--bg-color, #000028);
   padding: 40px 10px 0;
 }
 
@@ -146,6 +148,11 @@
   gap: 20px;
   grid-template-columns: 1fr;
   margin-bottom: 50px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 40px;
 }
 
 .section_cards {
@@ -185,7 +192,6 @@
 .card_text a {
   text-shadow: 2px 2px 0px var(--accent-color, #ff0070);
   text-decoration: none;
-  box-shadow: inset 0 -1px 0 0 transparent;
 }
 
 .card_text a:focus-visible {
@@ -193,7 +199,7 @@
 }
 
 .card_text a:hover {
-  box-shadow: inset 0 -1px 0 0 currentColor;
+  border-bottom: 1px solid currentColor;
 }
 
 .section_gallery {
@@ -231,7 +237,7 @@
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 0.83;
   color: var(--title-color, #db00ff);
-  text-shadow: 4px 4px 0px var(--accent-color, #ff0070);
+  text-shadow: 2px 2px 0px var(--accent-color, #ff0070);
   text-align: center;
 }
 
@@ -243,10 +249,16 @@
 
   .decorated-zone::before {
     top: 20px;
+    right: 20px;
+  }
+
+  .decorated-zone::after {
+    bottom: 20px;
+    left: 20px;
   }
 
   .header {
-    margin: 0 10px;
+    padding: 0 10px;
   }
 
   .header_title {
@@ -269,23 +281,28 @@
     margin-bottom: 80px;
   }
 
-  .section:not(.section_vertical) .section_title {
+  .section:last-child {
+    margin-bottom: 0px;
+    padding-bottom: 60px;
+  }
+
+  .section:not(.exclusive_section) .section_title {
     grid-row: 1;
     align-self: start;
   }
 
-  .section_vertical {
+  .exclusive_section {
     grid-template-columns: 1fr 2fr;
   }
 
-  .section_vertical .section_title {
+  .exclusive_section .section_title {
     grid-column: 1;
     grid-row: 1;
   }
 
-  .section_vertical .section_cards,
-  .section_vertical .card_title,
-  .section_vertical .gallery {
+  .exclusive_section .section_cards,
+  .exclusive_section .card_title,
+  .exclusive_section .gallery {
     grid-column: 1 / -1;
   }
 
@@ -346,12 +363,12 @@
     margin-top: 20px;
   }
 
-  .section_vertical:not(.section_gallery) {
+  .exclusive_section:not(.section_gallery) {
     grid-template-columns: 1fr 2fr;
     gap: 20px;
   }
 
-  .section_vertical:not(.section_gallery) .section_cards {
+  .exclusive_section:not(.section_gallery) .section_cards {
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -364,15 +381,11 @@
   }
   .section_gallery .card_title,
   .section_gallery .gallery,
-  .section_vertical .section_cards {
+  .exclusive_section .section_cards {
     grid-column: 1 / -1;
   }
 
-  .section_vertical:not(.section_gallery) .section_cards .card {
-    grid-column: auto;
-  }
-
-  .section_vertical:not(.section_gallery) .section_title {
+  .exclusive_section:not(.section_gallery) .section_title {
     grid-column: 1;
     grid-row: 1;
     align-self: start;
